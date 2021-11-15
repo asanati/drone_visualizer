@@ -1,0 +1,1 @@
+add_executable(drone_visualizer src/main.cpp)

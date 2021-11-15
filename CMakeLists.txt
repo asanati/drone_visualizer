@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 include(CTest)
 enable_testing()
 
-add_executable(drone_visualizer main.cpp)
-
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+
+add_subdirectory(lib)
+add_subdirectory(external)
+add_subdirectory(app)
