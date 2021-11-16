@@ -100,4 +100,24 @@ void MyTestApp::setup() {
   spotLightNode->setPosition(Vector3(200, 200 , 0));
 
   spotLight->setSpotlightRange(Degree(35), Degree(50));
+
+  Light* directionalLight = scene->createLight("DirectionalLight");
+  directionalLight->setType(Light::LT_DIRECTIONAL);
+
+  directionalLight->setDiffuseColour(ColourValue(1, 1, 1));
+  directionalLight->setSpecularColour(ColourValue(1, 1, 1));
+
+  SceneNode* directionalLightNode = root_node->createChildSceneNode();
+  directionalLightNode->attachObject(directionalLight);
+  directionalLightNode->setDirection(Vector3(0,-1,1));
+
+  Light* pointLight = scene->createLight("PointLight");
+  pointLight->setType(Light::LT_POINT);
+
+  pointLight->setDiffuseColour(0.3,0.3,0.3);
+  pointLight->setSpecularColour(0.3,0.3,0.3);
+
+  SceneNode* pointLightNode = root_node->createChildSceneNode();
+  pointLightNode->attachObject(pointLight);
+  pointLightNode->setPosition(Vector3(0, 150, 250));
 }
